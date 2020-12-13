@@ -1,0 +1,43 @@
+---
+title: "Introduction to the functions"
+author: "Hongyi Liao"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to the functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+## Overview
+
+__StatComp20016__ is a simple R package
+
+## _rrayleigh_ 
+
+The source R code for _rrayleigh_ is as follows:
+```{r,eval=FALSE}
+rrayleigh<-function(n,sig){
+U<-runif(n)
+x<-sqrt(-2*sig^2*log(1-U))
+x
+}
+```
+  
+  This funcrion returns a random sample from rayleigh distribution of size n.
+
+## _MCIrayleigh_
+
+The source R code for _MCIrayleigh_ is as follows:
+```{r,eval=FALSE}
+MCIrayleigh<-function(a,b,sig,n){
+U<-runif(n,a,b)
+y<-U/sig^2
+x<-mean(y*exp(-y/2))
+x
+}
+```
+  
+  This function uses the monte carlo method to return the value of integration.
+ 
+
